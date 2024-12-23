@@ -5,16 +5,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ExpensesScreen from './screens/ExpensesScreen';
 import CurrencyRaitingsScreen from './screens/CurrencyRaitingsScreen';
+import IncomeScreen from './screens/IncomeScreen';
+import ChartScreen from './screens/ChartScreen';
 
 const Tab = createBottomTabNavigator();
 
-const ExpenseTrackerScreen = () => (
-    <ExpensesScreen />
-);
 
-const CurrencyExchangeScreen = () => (
-    <CurrencyRaitingsScreen />
-);
 
 export default function App() {
     return (
@@ -24,21 +20,26 @@ export default function App() {
                     tabBarIcon: ({ focused, color, size }) => {
                         let iconName;
 
-                        if (route.name === 'Expenses') {
+                        if (route.name === 'Expenses') { //expense icon
                             iconName = focused ? 'wallet' : 'wallet-outline';
-                        } else if (route.name === 'Currency Exchange') {
+                        } else if (route.name === 'Currency Exchange') { //currency icon
                             iconName = focused ? 'cash' : 'cash-outline';
+                        } else if (route.name === 'Incomes') { // Income icon
+                            iconName = focused ? 'trending-up' : 'trending-up-outline';
+                        } else if (route.name === 'Chart') { //chart icon
+                            iconName = focused ? 'pie-chart' : 'pie-chart-outline';
                         }
 
-                        // İkonu döndür
                         return <Icon name={iconName} size={size} color={color} />;
                     },
-                    tabBarActiveTintColor: 'tomato', // Aktif sekmenin rengi
-                    tabBarInactiveTintColor: 'gray', // Pasif sekmenin rengi
+                    tabBarActiveTintColor: 'tomato',
+                    tabBarInactiveTintColor: 'gray',
                 })}
             >
-                <Tab.Screen name="Expenses" component={ExpenseTrackerScreen} />
-                <Tab.Screen name="Currency Exchange" component={CurrencyExchangeScreen} />
+                <Tab.Screen name="Expenses" component={ExpensesScreen} />
+                <Tab.Screen name="Incomes" component={IncomeScreen} />
+                <Tab.Screen name="Chart" component={ChartScreen} />
+                <Tab.Screen name="Currency Exchange" component={CurrencyRaitingsScreen} />
             </Tab.Navigator>
         </NavigationContainer>
     );
