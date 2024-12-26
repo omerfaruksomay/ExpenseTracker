@@ -22,14 +22,14 @@ const ChartScreen = () => {
 
             setData([
                 {
-                    name: 'Gelirler',
+                    name: 'Incomes',
                     amount: totalIncomes,
                     color: '#4CAF50',
                     legendFontColor: '#333',
                     legendFontSize: 15,
                 },
                 {
-                    name: 'Giderler',
+                    name: 'Expenses',
                     amount: totalExpenses,
                     color: '#F44336',
                     legendFontColor: '#333',
@@ -59,7 +59,6 @@ const ChartScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Gelir ve Gider Grafiği</Text>
             <PieChart
                 data={data}
                 width={Dimensions.get('window').width - 32}
@@ -84,6 +83,7 @@ const styles = StyleSheet.create({
         padding: 16,
         backgroundColor: '#F5F5F5',
         alignItems: 'center',
+        justifyContent: "center"
     },
     header: {
         fontSize: 20,

@@ -65,18 +65,18 @@ export default function ExpensesScreen() {
             <View style={styles.calculatorContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Harcama Başlığı"
+                    placeholder="Expense Name"
                     value={title}
                     onChangeText={setTitle}
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder="Tutar"
+                    placeholder="Amount"
                     keyboardType="numeric"
                     value={amount}
                     onChangeText={setAmount}
                 />
-                <Button title="Harcama Ekle" onPress={addExpense} />
+                <Button title="Add Expense" onPress={addExpense} />
             </View>
 
             {expenses.length > 0 ? (
@@ -89,7 +89,7 @@ export default function ExpensesScreen() {
                                 <Text style={styles.rate}>{item.amount} TL</Text>
                             </View>
                             <TouchableOpacity onPress={() => deleteExpense(item.id)}>
-                                <Text style={styles.deleteText}>Sil</Text>
+                                <Text style={styles.deleteText}>Delete</Text>
                             </TouchableOpacity>
                         </View>
                     )}
@@ -97,7 +97,7 @@ export default function ExpensesScreen() {
                     contentContainerStyle={styles.list}
                 />
             ) : (
-                <Text style={styles.noExpenses}>Henüz harcama eklemediniz.</Text>
+                <Text style={styles.noExpenses}>You haven't added any expenses yet.</Text>
             )}
         </View>
     );

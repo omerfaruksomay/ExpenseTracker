@@ -90,7 +90,7 @@ export default function CurrencyRaitingsScreen({ navigation }) {
             <View style={styles.calculatorContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="TL Tutarını Giriniz"
+                    placeholder="Enter the amount in TL."
                     keyboardType="numeric"
                     value={amountInTRY}
                     onChangeText={(text) => setAmountInTRY(text)}
@@ -103,11 +103,11 @@ export default function CurrencyRaitingsScreen({ navigation }) {
                     }))}
                     labelField="label"
                     valueField="value"
-                    placeholder="Para Birimi Seçin"
+                    placeholder="Select Currency"
                     value={selectedCurrency}
                     onChange={(item) => setSelectedCurrency(item.value)}
                 />
-                <Button title="Hesapla" onPress={handleConvert} />
+                <Button title="Calculate" onPress={handleConvert} />
                 {convertedAmount && (
                     <Text style={styles.result}>
                         {amountInTRY} TL ≈ {convertedAmount} {selectedCurrency}

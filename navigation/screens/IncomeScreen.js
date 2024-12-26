@@ -65,18 +65,18 @@ export default function IncomeScreen() {
             <View style={styles.calculatorContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Gelir Başlığı"
+                    placeholder="Income Name"
                     value={title}
                     onChangeText={setTitle}
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder="Tutar"
+                    placeholder="Amount"
                     keyboardType="numeric"
                     value={amount}
                     onChangeText={setAmount}
                 />
-                <Button title="Gelir Ekle" onPress={addIncome} />
+                <Button title="Add Income" onPress={addIncome} />
             </View>
 
             {incomes.length > 0 ? (
@@ -89,7 +89,7 @@ export default function IncomeScreen() {
                                 <Text style={styles.rate}>{item.amount} TL</Text>
                             </View>
                             <TouchableOpacity onPress={() => deleteIncome(item.id)}>
-                                <Text style={styles.deleteText}>Sil</Text>
+                                <Text style={styles.deleteText}>Delete</Text>
                             </TouchableOpacity>
                         </View>
                     )}
@@ -97,7 +97,7 @@ export default function IncomeScreen() {
                     contentContainerStyle={styles.list}
                 />
             ) : (
-                <Text style={styles.noIncomes}>Henüz gelir eklemediniz.</Text>
+                <Text style={styles.noIncomes}>You haven't added any Incomes yet.</Text>
             )}
         </View>
     );
